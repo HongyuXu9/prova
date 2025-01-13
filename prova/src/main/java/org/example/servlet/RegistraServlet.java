@@ -6,7 +6,7 @@ import org.example.dao.UtenteJDBCImpl;
 
 import java.io.IOException;
 
-public class UtenteServlet extends HttpServlet{
+public class RegistraServlet extends HttpServlet{
     private UtenteDAO dao;
     public void init() {
         String ip = getInitParameter("ip");
@@ -22,13 +22,17 @@ public class UtenteServlet extends HttpServlet{
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String ruolo = request.getParameter("ruolo");
 
-       if (dao.checkRuolo(username, password)) {
-            response.sendRedirect("gestione?username=" + username + "&password=" + password);
-        } else if (dao.checkUtente(username, password)) {
-            response.sendRedirect("home?username=" + username + "&password=" + password);
-        } else {
-            response.sendRedirect("login.jsp?error=Credenziali non valide");
+        if (username != null && password != null && ruolo != null) {
+            int result = dao.registra(username, password, ruolo);
+            if (result == -1) {
+                response.sendRedirect("registra.jsp?error=Registrazione non è andato a buon fine");
+                return;
+            }
+            response.sendRedirect("login.jsp");
+        }else{
+            response.sendRedirect("registra.jsp?error=Registrazione non e andato a buon fine");
         }
     }
 }

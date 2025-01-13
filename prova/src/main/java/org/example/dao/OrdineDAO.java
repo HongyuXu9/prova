@@ -8,6 +8,9 @@ import java.util.ArrayList;
 public interface OrdineDAO {
     public ArrayList<Ordine> ordiniEffettuati(String username);
     public int aggiornaStatoOrdine(int id, String stato);
+
+    boolean checkQuantita(int id_prodotto, int quantita);
+
     public int insertProdotto(String username, int id_prodotto, int quantita);
     public ArrayList<Ordine> getOrdini();
 }

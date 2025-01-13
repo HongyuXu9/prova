@@ -30,13 +30,15 @@ public class GestioneServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        System.out.println(username);
+
         if (username == null || password == null || !utenteDAO.checkUtente(username, password)) {
             response.sendRedirect("login.jsp?error=Credenziali non valide");
             return;
         }
         ArrayList<Ordine> ordini = dao.getOrdini();
         request.setAttribute("ordini", ordini);
+        request.setAttribute("username", username);
+        request.setAttribute("password", password);
         request.getRequestDispatcher("tabellaDegliOrdiniA.jsp").forward(request, response);
 
     }
@@ -44,6 +46,7 @@ public class GestioneServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+
         if (username == null || password == null || !utenteDAO.checkUtente(username, password)) {
             response.sendRedirect("login.jsp?error=Credenziali non valide");
             return;

@@ -26,8 +26,26 @@ public class CarrelloServlet extends HttpServlet {
     }
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String error = request.getParameter("error");
+
+
+        if (username == null || password == null || !utenteDAO.checkUtente(username, password)) {
+            response.sendRedirect("login.jsp?error=Credenziali non valide");
+            return;
+        }
+
         ArrayList<Prodotto> risultati = dao.getProdottiUser(username);
+        ArrayList<Integer> quantitaP = new ArrayList<>();
+        for(Prodotto p : risultati){
+            quantitaP.add(dao.getQuantitabyId(p.getId_prodotto(), username));
+        }
+
         request.setAttribute("risultati", risultati);
+        request.setAttribute("quantitaP", quantitaP);
+        request.setAttribute("username", username);
+        request.setAttribute("password", password);
+        request.setAttribute("error", error);
         request.getRequestDispatcher("carrello.jsp").forward(request, response);
     }
 

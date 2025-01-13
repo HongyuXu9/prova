@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
 import org.example.dao.ProdottoDAO;
 import org.example.dao.ProdottoJDBCimpl;
 import org.example.dao.UtenteDAO;

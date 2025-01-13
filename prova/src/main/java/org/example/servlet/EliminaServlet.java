@@ -1,13 +1,14 @@
 package org.example.servlet;
-
 import jakarta.servlet.http.*;
-import org.example.dao.UtenteDAO;
+import org.example.dao.AcquistoDAO;
+import org.example.dao.AcquistoJDBCimpl;
 import org.example.dao.UtenteJDBCImpl;
 
 import java.io.IOException;
 
-public class UtenteServlet extends HttpServlet{
-    private UtenteDAO dao;
+public class EliminaServlet extends HttpServlet {
+    private AcquistoDAO dao;
+
     public void init() {
         String ip = getInitParameter("ip");
         String port = getInitParameter("port");
@@ -15,20 +16,16 @@ public class UtenteServlet extends HttpServlet{
         String userName = getInitParameter("userName");
         String password = getInitParameter("password");
 
-        dao = new UtenteJDBCImpl(ip, port, dbName, userName, password);
+        dao = new AcquistoJDBCimpl(ip, port, dbName, userName, password);
     }
-
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        int id = Integer.parseInt(request.getParameter("id"));
 
-       if (dao.checkRuolo(username, password)) {
-            response.sendRedirect("gestione?username=" + username + "&password=" + password);
-        } else if (dao.checkUtente(username, password)) {
-            response.sendRedirect("home?username=" + username + "&password=" + password);
-        } else {
-            response.sendRedirect("login.jsp?error=Credenziali non valide");
-        }
+        dao.deleteProdotto(username, id);
+        response.sendRedirect("carrello?username=" + username + "&password=" + password);
     }
+
 }

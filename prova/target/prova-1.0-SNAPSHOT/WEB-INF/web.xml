@@ -181,4 +181,62 @@
         <url-pattern>/gestione</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>RegistraServlet</servlet-name>
+        <servlet-class>org.example.servlet.RegistraServlet</servlet-class>
+        <init-param>
+            <param-name>ip</param-name>
+            <param-value>127.0.0.1</param-value>
+        </init-param>
+        <init-param>
+            <param-name>port</param-name>
+            <param-value>3306</param-value>
+        </init-param>
+        <init-param>
+            <param-name>dbName</param-name>
+            <param-value>tabelle</param-value>
+        </init-param>
+        <init-param>
+            <param-name>userName</param-name>
+            <param-value>root</param-value>
+        </init-param>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>123xuhongyu.</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegistraServlet</servlet-name>
+        <url-pattern>/registra</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EliminaServlet</servlet-name>
+        <servlet-class>org.example.servlet.EliminaServlet</servlet-class>
+        <init-param>
+            <param-name>ip</param-name>
+            <param-value>127.0.0.1</param-value>
+        </init-param>
+        <init-param>
+            <param-name>port</param-name>
+            <param-value>3306</param-value>
+        </init-param>
+        <init-param>
+            <param-name>dbName</param-name>
+            <param-value>tabelle</param-value>
+        </init-param>
+        <init-param>
+            <param-name>userName</param-name>
+            <param-value>root</param-value>
+        </init-param>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>123xuhongyu.</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EliminaServlet</servlet-name>
+        <url-pattern>/elimina</url-pattern>
+    </servlet-mapping>
+
 </web-app>

@@ -4,6 +4,26 @@
 <html>
     <head>
         <title>Tabella degli ordini</title>
+        <style>
+            h1{
+                top : 30px;
+                text-align: center;
+                padding: 20px;
+                background-color: orange;
+            }
+            table {
+                width: 100%;
+                margin: 20px auto;
+            }
+
+            table, th, td {
+                border: 1px solid;
+            }
+            td {
+                text-align: center;
+            }
+            tr:hover {background-color: coral;}
+        </style>
     </head>
 
     <body>
@@ -27,8 +47,9 @@
             <td><%= ordine.getQuantita() %></td>
         </tr>
 
-            <%}
-    }else{%>
+            <%}%>
+        </table>
+    <%}else{%>
         <p>Nessun ordine presente!</p>
         <%}%>
         <br>

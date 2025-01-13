@@ -55,10 +55,15 @@ public class OrdineServlet extends HttpServlet {
             for (int i = 0; i < idProdotti.length; i++) {
                 int idProdotto = Integer.parseInt(idProdotti[i]);
                 int quantitaProdotto = Integer.parseInt(quantita[i]);
+                System.out.println(dao.checkQuantita(idProdotto, quantitaProdotto));
                 int result = dao.insertProdotto(username, idProdotto, quantitaProdotto);
+                if (result== -1 ) {
+                    response.sendRedirect("carrello?username=" + username + "&password=" + password +"&error=ordine non e andato a buon fine");
+                    return;
+                }
                 int result1 = acquistoDAO.deleteProdotto(username, idProdotto);
-                if (result== -1 || result1 == -1) {
-                    response.setStatus(500);
+                if (result1 == -1) {
+                    response.sendRedirect("carrello?username=" + username + "&password=" + password +"&error=ordine non e andato a buon fine");
                     return;
                 }
             }

@@ -53,5 +53,24 @@ public class UtenteJDBCImpl implements UtenteDAO {
         return false;
     }
 
+    @Override
+    public int registra(String username, String password, String ruolo) {
+        String query = "INSERT INTO utenti (username, password, ruolo) VALUES (?, ?, ?)";
+        try{
+            PreparedStatement pstmt = conn.prepareStatement(query);
+
+            pstmt.setString(1, username);
+            pstmt.setString(2, password);
+            pstmt.setString(3, ruolo);
+
+            int affectedRows = pstmt.executeUpdate();
+            return affectedRows;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
 
 }
