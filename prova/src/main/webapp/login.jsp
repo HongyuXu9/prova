@@ -14,7 +14,8 @@
                 top : 30px;
                 text-align: center;
                 width: 100%;
-                max-width: 400px;
+                border-radius: 60px;
+                max-width: 300px;
                 padding: 10px;
                 background-color: orange;
             }
@@ -27,6 +28,7 @@
                max-width: 400px;
                height: 30%;
                min-height: 200px;
+               margin-top: 50px;
                display: flex;
                flex-direction: column;
            }

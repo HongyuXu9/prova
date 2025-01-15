@@ -46,10 +46,10 @@
     <h1>Carrello di <%= username %></h1>
     <%  ArrayList<Prodotto> risultati = (ArrayList<Prodotto>) request.getAttribute("risultati");
         ArrayList<Integer> quantitaP = (ArrayList<Integer>) request.getAttribute("quantitaP");%>
-    <div class="listProdotto">
     <%  if (risultati != null && quantitaP != null && risultati.size() == quantitaP.size()
-    && !risultati.isEmpty() && !quantitaP.isEmpty()) {
-            for (int i = 0; i < risultati.size(); i++) {
+    && !risultati.isEmpty() && !quantitaP.isEmpty()) {%>
+    <div class="listProdotto">
+           <%for (int i = 0; i < risultati.size(); i++) {
                 Prodotto p = risultati.get(i);
                 int quantita = quantitaP.get(i);%>
         <div class="prodotto">
@@ -85,18 +85,14 @@
     <% } %>
 
     <% }else{%>
-    <p>Non ci sono prodotti nel carrello.</p>
-    <%
-        String error = request.getParameter("error");
-        if (error != null) {
-    %>
-    <p style="color: red;"><%= error %></p>
-    <% } %>
-    <%}%>
-
-
-
-
+        <p style="text-align: center">Non ci sono prodotti nel carrello.</p>
+        <%
+            String error = request.getParameter("error");
+            if (error != null) {
+        %>
+        <p style="color: red;"><%= error %></p>
+        <% } %>
+     <%}%>
     <br>
     <a href="home?username=<%= username %>&password=<%=password%>">Torna alla ricerca</a>
     </body>

@@ -31,7 +31,7 @@
     <% ArrayList<Ordine> ordini= (ArrayList<Ordine>) request.getAttribute("ordini");
         String username = (String)request.getAttribute("username");
         String password = (String)request.getAttribute("password");
-    if (ordini != null){%>
+    if (ordini != null && !ordini.isEmpty()){%>
     <table>
         <tr>
             <th>ID Ordine</th>
@@ -50,7 +50,7 @@
             <%}%>
         </table>
     <%}else{%>
-        <p>Nessun ordine presente!</p>
+        <p style="text-align: center">Nessun ordine presente!</p>
         <%}%>
         <br>
         <a href="home?username=<%= username %>&password=<%=password%>">Torna alla ricerca</a>
