@@ -17,13 +17,20 @@
             .listProdotto {
                 display: flex;
                 flex-wrap: wrap;
+                justify-content: center;
                 margin-left: 10px;
                 margin-right: 10px;
+                gap: 20px;
             }
 
             .prodotto {
-                margin: 10px;
+                background-color: lightgrey;
+                padding: 10px;
+                width: 300px;
+                border: 1px solid;
+                border-radius: 8px;
             }
+
 
             .prodotto img {
                 width: 100%;
@@ -70,7 +77,7 @@
 
     <%}
     }else{%>
-        <p>Nessun prodotto trovato</p>
+        <p style="text-align: center">Nessun prodotto trovato</p>
     <%}%>
 
     <br>

@@ -46,7 +46,7 @@
             <tr>
                 <td><%= ordine.getId_ordine() %></td>
                 <td><%= ordine.getUsername() %></td>
-                <td><%= ordine.getId_prodotto() %></td>
+                <td><a href="dettaglio?id=<%=ordine.getId_prodotto()%>" target="_blank"><%= ordine.getId_prodotto() %></a></td>
                 <td><%= ordine.getQuantita() %></td>
                 <td><%= ordine.getStato() %></td>
                 <td>

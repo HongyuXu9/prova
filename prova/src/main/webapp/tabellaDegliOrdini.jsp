@@ -42,7 +42,7 @@
             <% for (Ordine ordine : ordini) {%>
         <tr>
             <td><%= ordine.getId_ordine() %></td>
-            <td><%= ordine.getId_prodotto() %></td>
+            <td><a href="dettaglio?id=<%=ordine.getId_prodotto()%>" target="_blank"><%= ordine.getId_prodotto() %></a></td>
             <td><%= ordine.getStato() %></td>
             <td><%= ordine.getQuantita() %></td>
         </tr>

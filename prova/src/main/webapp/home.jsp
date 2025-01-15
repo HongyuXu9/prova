@@ -28,12 +28,18 @@
             .listProdotto {
                 display: flex;
                 flex-wrap: wrap;
+                justify-content: center;
                 margin-left: 10px;
                 margin-right: 10px;
+                gap: 20px;
             }
 
             .prodotto {
-                margin: 10px;
+                background-color: lightgrey;
+                padding: 10px;
+                width: 300px;
+                border: 1px solid;
+                border-radius: 8px;
             }
 
             .prodotto img {
@@ -71,7 +77,7 @@
         <a href="ordine?username=<%=username%>&password=<%=password%>">i miei ordini</a>
         <a href="notifica?username=<%=username%>&password=<%=password%>">le mie notifiche</a>
         <form method="get" action="search">
-            <input type="text" name="search" placeholder="Cerca prodotti">
+            <input type="text" name="search" placeholder="Cerca prodotti" required>
             <input type="hidden" name="username" value="<%= username %>">
             <input type="hidden" name = "password" value="<%= password %>">
             <button type="submit">Cerca</button>

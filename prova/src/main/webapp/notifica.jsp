@@ -35,6 +35,9 @@
                 background-color: orange;
             }
 
+            a{
+                text-align: center;
+            }
 
         </style>
     </head>

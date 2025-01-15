@@ -11,10 +11,11 @@
             }
 
             #sitoTitle{
-                top : 30px;
-                text-align: center;
                 width: 100%;
                 max-width: 400px;
+                border-radius: 8px;
+                top : 30px;
+                text-align: center;
                 padding: 10px;
                 background-color: orange;
             }
@@ -25,18 +26,43 @@
                 border-radius: 8px;
                 width: 100%;
                 max-width: 400px;
-                height: 30%;
-                min-height: 200px;
+                margin-top: 50px;
                 display: flex;
                 flex-direction: column;
+                align-items: center;
             }
 
-            button:hover {
-                color: red;
+            .container h1{
+                font-size: 20px;
+                margin-bottom: 20px;
             }
 
-            button:visited {
-                color: green;
+            .container form {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+            }
+
+            input[type="text"],
+            input[type="password"],
+            select[name="ruolo"]{
+                padding: 5px;
+                font-size: 15px;
+                border-radius: 5px;
+            }
+
+            form button{
+                margin-top: 10px;
+                background-color: orange;
+                font-size: 15px;
+                border-radius: 10px;
+                padding: 5px;
+                border: none;
+            }
+
+            form button:hover {
+                background-color: yellow;
             }
         </style>
     </head>
